@@ -1,0 +1,8 @@
+---
+title: "README"
+author: "STAT585_LAB4_TEAM6"
+date: "4/17/2019"
+output: html_document
+---
+
+[repo link](https://github.com/JingHou3/stat585_lab4_team6.git)
