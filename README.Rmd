@@ -6,3 +6,43 @@ output: html_document
 ---
 
 [repo link](https://github.com/JingHou3/stat585_lab4_team6.git)
+
+#Reading the data using API
+```{r}
+library(readr)
+
+sale <- read_csv("https://data.iowa.gov/resource/m3tr-qhgy.csv")
+
+Invoice_Number <- sale$invoice_line_no
+Date <- format(sale$date, format="%m/%d/%Y")  
+Store_Number <-sale$store
+Store_Name <- sale$name
+Address <- sale$address
+City <- sale$city
+Zip_Code <- sale$zipcode
+Store_location <- sale$store_location_address
+Country_Number<- sale$county_number
+Country <- sale$county
+Category <- sale$category
+Category_Name <- sale$category_name
+Vendor_Number <- sale$vendor_no
+Vendor_Name <- sale$vendor_name
+Item_Number <- sale$itemno
+Item_Description <- sale$im_desc
+Pack <- sale$pack
+Bottle_Volume  <- sale$bottle_volume_ml
+State_Bottle_Cost <- sale$state_bottle_cost
+State_Bottle_Retail <- sale$state_bottle_retail
+Bottles_Sold <- sale$sale_bottles
+Sale <-sale$sale_dollars
+Volume_Sold_liter <- sale$sale_liters
+Volume_Sold_gallons <- sale$sale_gallons
+
+story_sale <- data.frame(Invoice_Number, Date, Store_Number, Store_Name, 
+Address, City, Zip_Code, Store_location, Country_Number, Country, Category, 
+Category_Name, Vendor_Number, Vendor_Name, Item_Number, Item_Description, 
+Pack, Bottle_Volume, State_Bottle_Cost, State_Bottle_Retail, Bottles_Sold, 
+Sale,Volume_Sold_liter, Volume_Sold_gallons )
+
+```
+
