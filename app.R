@@ -4,7 +4,7 @@ library(tidyverse)
 ui <- navbarPage(
 
   theme = "yeti",
-  tags$title(" q"),
+  tags$title(" "),
 
   div(
     tags$header(p(" Liquor Sales", style="font-size:40px"),
