@@ -13,11 +13,11 @@ store_info <- IA_Liquor %>%
   filter(grepl("\\(",`Store Location`)) %>% 
   summarise(`Store Name` = unique(`Store Name`)[1], `Store Location` = unique(`Store Location`)[1]) %>% 
   mutate(Lat = purrr::map_chr(`Store Location`, .f = function(x){x %>% 
-      str_extract_all("(?<=\\().+?(?=,)") %>% 
+      str_extract_all("(?<=\\()[-0-9.]{1,}") %>% 
       unlist()}) %>% 
         as.numeric(), 
       Lon = purrr::map_chr(`Store Location`, .f = function(x){x %>% 
-          str_extract_all( "(?<=,).+?(?=\\))") %>% 
+          str_extract_all( "[-0-9.]{1,}(?=\\))") %>% 
           unlist()}) %>% 
         as.numeric())
 
