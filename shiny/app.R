@@ -5,7 +5,7 @@ library(ggplot2)
 library(lubridate)
 library(leaflet)
 
-IA_Liquor <- read_csv("data/story-sales.zip") %>% 
+IA_Liquor <- read_csv("../data/story-sales.zip") %>% 
   mutate(Date = lubridate::mdy(Date))
 
 store_info <- IA_Liquor %>% 
