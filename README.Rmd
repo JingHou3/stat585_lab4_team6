@@ -2,17 +2,25 @@
 title: "README"
 author: "STAT585_LAB4_TEAM6"
 date: "4/17/2019"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 [repo link](https://github.com/JingHou3/stat585_lab4_team6.git)
 
-#Reading the data using API
-```{r}
+#Team members  
+Jing Hou, Dapeng Hu, Yonghui Huo
+
+
+#Reading the data 
+```{r, message=FALSE}
 library(readr)
 
 sale <- read_csv("https://data.iowa.gov/resource/m3tr-qhgy.csv")
+# or using jsonlite::fromJSON("https://data.iowa.gov/resource/m3tr-qhgy.json")
 
+#changing variables to match Iowa_Liquor_Sales-Story.csv
 Invoice_Number <- sale$invoice_line_no
 Date <- format(sale$date, format="%m/%d/%Y")  
 Store_Number <-sale$store
@@ -48,7 +56,8 @@ Sale,Volume_Sold_liter, Volume_Sold_gallons )
 
 
 #Data cleaning
-```{r}
+```{r, message=FALSE}
+library(tidyverse)
 IA_Liquor <- read_csv("data/story-sales.zip") %>% 
   mutate(Date = lubridate::mdy(Date))
 
@@ -69,5 +78,5 @@ store_info <- IA_Liquor %>%
 Other data cleaning was done in app.R
 
 
-
-
+#Shiny  
+Please find our app in the shiny folder. 
